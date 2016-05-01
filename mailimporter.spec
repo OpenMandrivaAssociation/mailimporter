@@ -25,6 +25,7 @@ BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: cmake(KF5Mime)
 BuildRequires: cmake(KF5JobWidgets)
 BuildRequires: cmake(KF5Solid)
+BuildRequires: cmake(KF5I18n)
 
 %description
 KDE library for importing E-Mail from various sources
