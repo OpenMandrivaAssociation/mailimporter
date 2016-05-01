@@ -29,6 +29,7 @@ BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(Qt5UiTools)
+BuildRequires: cmake(KF5Libkdepim)
 
 %description
 KDE library for importing E-Mail from various sources
