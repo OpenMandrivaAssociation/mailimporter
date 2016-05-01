@@ -30,6 +30,7 @@ BuildRequires: cmake(KF5Archive)
 BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(KF5Libkdepim)
+BuildRequires: cmake(KF5CalendarCore)
 
 %description
 KDE library for importing E-Mail from various sources
