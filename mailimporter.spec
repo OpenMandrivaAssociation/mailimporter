@@ -22,6 +22,7 @@ BuildRequires: cmake(Qt5Qml)
 BuildRequires: sasl-devel
 BuildRequires: cmake(KF5AkonadiSearch)
 BuildRequires: cmake(KF5Mime)
+BuildRequires: cmake(KF5JobWidgets)
 
 %description
 KDE library for importing E-Mail from various sources
