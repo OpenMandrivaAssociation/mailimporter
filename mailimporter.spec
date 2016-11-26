@@ -20,6 +20,8 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: sasl-devel
+BuildRequires: boost-devel
+BuildRequires: cmake(KF5Akonadi)
 BuildRequires: cmake(KF5AkonadiSearch)
 BuildRequires: cmake(KF5AkonadiContact)
 BuildRequires: cmake(KF5Mime)
@@ -33,7 +35,7 @@ BuildRequires: cmake(KF5Libkdepim)
 BuildRequires: cmake(KF5CalendarCore)
 
 %description
-KDE library for importing E-Mail from various sources
+KDE library for importing E-Mail from various sources.
 
 %libpackage KF5MailImporter %{major}
 
@@ -48,10 +50,9 @@ Development files (Headers etc.) for %{name}.
 %prep
 %setup -q
 %apply_patches
+%cmake_kde5
 
 %build
-%cmake_kde5
-cd ../
 %ninja -C build
 
 %install
