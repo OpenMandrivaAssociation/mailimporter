@@ -43,6 +43,7 @@ KDE library for importing E-Mail from various sources.
 %package -n %{devname}
 Summary: Development files for %{name}
 Group: Development/C
+Requires: %{name} = {EVRD}
 Requires: %{mklibname KF5MailImporter %{major}} = %{EVRD}
 
 %description -n %{devname}
@@ -58,6 +59,9 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
+
+%files
+%{_sysconfdir}/xdg/mailimporter.categories
 
 %files -n %{devname}
 %{_includedir}/*
