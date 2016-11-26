@@ -43,7 +43,7 @@ KDE library for importing E-Mail from various sources.
 %package -n %{devname}
 Summary: Development files for %{name}
 Group: Development/C
-Requires: %{name} = {EVRD}
+Requires: %{name} = %{EVRD}
 Requires: %{mklibname KF5MailImporter %{major}} = %{EVRD}
 
 %description -n %{devname}
