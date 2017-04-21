@@ -2,7 +2,7 @@
 %define devname %mklibname KF5MailImporter -d
 
 Name: mailimporter
-Version:	16.12.2
+Version:	17.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -39,6 +39,7 @@ BuildRequires: cmake(KF5CalendarCore)
 KDE library for importing E-Mail from various sources.
 
 %libpackage KF5MailImporter %{major}
+%libpackage KF5MailImporterAkonadi %{major}
 
 %package -n %{devname}
 Summary: Development files for %{name}
@@ -59,8 +60,9 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
+%find_lang libmailimporter
 
-%files
+%files -f libmailimporter.lang
 %{_sysconfdir}/xdg/mailimporter.categories
 %{_sysconfdir}/xdg/mailimporter.renamecategories
 
