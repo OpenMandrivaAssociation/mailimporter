@@ -9,7 +9,7 @@ Version:	17.04.0
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for importing E-Mail from various sources
 URL: http://kde.org/
@@ -46,6 +46,7 @@ Summary: Development files for %{name}
 Group: Development/C
 Requires: %{name} = %{EVRD}
 Requires: %{mklibname KF5MailImporter %{major}} = %{EVRD}
+Requires: %{mklibname KF5MailImporterAkonadi %{major}} = %{EVRD}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
