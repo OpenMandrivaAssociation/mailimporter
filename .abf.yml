@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   mailimporter-17.12.1.tar.xz: 7748cd12d2d528a66d78568d1f3e1bf1b46d457b
+sources:
+  mailimporter-17.12.2.tar.xz: 37680d5a30b76941776ebb9f694f02e5a7cdd78f
