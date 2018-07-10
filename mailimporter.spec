@@ -2,7 +2,7 @@
 %define devname %mklibname KF5MailImporter -d
 
 Name: mailimporter
-Version:	 18.04.2
+Version:	 18.04.3
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
