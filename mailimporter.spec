@@ -2,7 +2,7 @@
 %define devname %mklibname KF5MailImporter -d
 
 Name: mailimporter
-Version:	20.04.3
+Version:	20.07.80
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -34,6 +34,7 @@ BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(KF5Libkdepim)
 BuildRequires: cmake(KF5CalendarCore)
+BuildRequires: cmake(KF5PimCommonAkonadi)
 
 %description
 KDE library for importing E-Mail from various sources.
