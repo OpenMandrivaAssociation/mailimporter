@@ -35,6 +35,9 @@ BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(KF5Libkdepim)
 BuildRequires: cmake(KF5CalendarCore)
 BuildRequires: cmake(KF5PimCommonAkonadi)
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 
 %description
 KDE library for importing E-Mail from various sources.
