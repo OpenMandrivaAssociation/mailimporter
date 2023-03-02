@@ -49,8 +49,8 @@ KDE library for importing E-Mail from various sources.
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{name} = %{EVRD}
-Requires: %{mklibname KF5MailImporter %{major}} = %{EVRD}
-Requires: %{mklibname KF5MailImporterAkonadi %{major}} = %{EVRD}
+Requires: %{mklibname KF5MailImporter} = %{EVRD}
+Requires: %{mklibname KF5MailImporterAkonadi} = %{EVRD}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
