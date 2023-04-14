@@ -1,15 +1,16 @@
 %define major 5
-%define devname %mklibname KF5MailImporter -d
+%define olddevname %mklibname KF5MailImporter -d
+%define devname %mklibname KPim5MailImporter -d
 
 Name: mailimporter
-Version:	22.12.3
+Version:	23.03.90
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for importing E-Mail from various sources
 URL: http://kde.org/
@@ -38,33 +39,37 @@ BuildRequires: cmake(KF5PimCommonAkonadi)
 # For QCH format docs
 BuildRequires: doxygen
 BuildRequires: qt5-assistant
+Obsoletes: %{mklibname KF5MailImporter 5} < %{EVRD}
+Obsoletes: %{mklibname KF5MailImporterAkonadi 5} < %{EVRD}
+Obsoletes: %{mklibname KF5MailImporter} < %{EVRD}
+Obsoletes: %{mklibname KF5MailImporterAkonadi} < %{EVRD}
 
 %description
 KDE library for importing E-Mail from various sources.
 
-%libpackage KF5MailImporter %{major}
-%libpackage KF5MailImporterAkonadi %{major}
+%libpackage KPim5MailImporter %{major}
+%libpackage KPim5MailImporterAkonadi %{major}
 
 %package -n %{devname}
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{name} = %{EVRD}
-Requires: %{mklibname KF5MailImporter} = %{EVRD}
-Requires: %{mklibname KF5MailImporterAkonadi} = %{EVRD}
+Requires: %{mklibname KPim5MailImporter} = %{EVRD}
+Requires: %{mklibname KPim5MailImporterAkonadi} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
-%cmake_kde5 -G "Unix Makefiles"
+%autosetup -p1
+%cmake_kde5
 
 %build
-%make -C build
+%ninja_build -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 %find_lang libmailimporter
 
 %files -f libmailimporter.lang
