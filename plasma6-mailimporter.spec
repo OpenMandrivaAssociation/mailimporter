@@ -14,7 +14,7 @@ Version:	24.01.96
 %endif
 Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
-Source0:	https://invent.kde.org/pim/mailimporter/-/archive/%{gitbranch}/mailimporter-%{gitbranchd}.tar.bz2#/mailimporter-20240217.tar.bz2
+Source0:	https://invent.kde.org/pim/mailimporter/-/archive/%{gitbranch}/mailimporter-%{gitbranchd}.tar.bz2#/mailimporter-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/mailimporter-%{version}.tar.xz
 %endif
