@@ -1,16 +1,23 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 6
 %define devname %mklibname KPim6MailImporter -d
 
 Name: plasma6-mailimporter
-Version:	24.01.95
+Version:	24.01.96
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	%{?git:0.%{git}.}1
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/pim/mailimporter/-/archive/%{gitbranch}/mailimporter-%{gitbranchd}.tar.bz2#/mailimporter-20240217.tar.bz2
+%else
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/mailimporter-%{version}.tar.xz
+%endif
 Summary: KDE library for importing E-Mail from various sources
 URL: http://kde.org/
 License: GPL
@@ -47,10 +54,8 @@ Obsoletes: %{mklibname KF6MailImporterAkonadi} < %{EVRD}
 KDE library for importing E-Mail from various sources.
 
 %libpackage KPim6MailImporter %{major}
-%{_libdir}/libKPim6MailImporter.so.5*
 
 %libpackage KPim6MailImporterAkonadi %{major}
-%{_libdir}/libKPim6MailImporterAkonadi.so.5*
 
 %package -n %{devname}
 Summary: Development files for %{name}
@@ -63,7 +68,7 @@ Requires: %{mklibname KPim6MailImporterAkonadi} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%autosetup -p1 -n mailimporter-%{version}
+%autosetup -p1 -n mailimporter-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
