@@ -19,7 +19,7 @@ Source0:	https://invent.kde.org/pim/mailimporter/-/archive/%{gitbranch}/mailimpo
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/mailimporter-%{version}.tar.xz
 %endif
 Summary: KDE library for importing E-Mail from various sources
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake(ECM)
