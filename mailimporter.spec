@@ -4,7 +4,7 @@
 %define major 6
 %define devname %mklibname KPim6MailImporter -d
 
-Name: plasma6-mailimporter
+Name: mailimporter
 Version:	25.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
